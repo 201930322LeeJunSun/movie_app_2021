@@ -1,27 +1,33 @@
 import { render } from "@testing-library/react";
 import React from "react";
+import axios from "axios";
 
 class App extends React.Component{
-  state={
-    count: 0,
+  state = {
+    isLoding : true,
+    movies:[]
+  };
 
-  };
-  add = ()=>{
-    console.log('add');
-  };
-  minus = ()=>{
-    console.log('minus');
-  };
-  render(){
-    
-    return( 
-      <div>
-    <h1>the number is:{this.state.count}</h1>
-    <button onClick={this.add}>Add</button>
-    <button onClick={this.minus}>Minus</button>
-      </div>
-    );
+  getMovies = async () => {
+    const{
+      data: {
+        data: {movies},
+      },
+    } = await axios.get('https://yts.mx/api/v2/list_movies.json');
+    this.setState({movies, isLoding:false});
   }
-}
+
+  componentDidMount(){
+
+    this.getMovies();
+  }
+  render(){
+    const {isLoding }= this.state;
+    return <div>{isLoding ? 'Loding...':'We are ready'}</div>;
+  }
+
+  }
+  
+  
 
 export default App;
