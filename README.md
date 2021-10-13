@@ -1,6 +1,39 @@
 # 201930322 이준선
+<<<<<<< HEAD
+
+# [10월 13일]
 
 #[10월 6일]
+=======
+# [10월 6일]
+**마운트로 분류하는 생명주기 함수들**
+
+constructor() -> render() -> componentDidMount()
+
+
+
+**생성자란 무엇인가.**
+
+●constructor()는 component를 생성할 때 state 값을 초기화하거나 메서드를 바인딩할 때 사용한다.
+
+●자바스크립트에서 super는 부모클래스 생성자의 참조한다는 의미이다.
+
+●생성자 내에서는 외부 API를 직접 호출할 수 없다 필요 하다면 componentDidMount()를 사용한다
+
+●생성자 내에서는 setState를 사용하지 않고, this.state를 사용하여 state의 초기값을 할당한다.
+
+
+**앱로딩 하는 변수 : isLoding state**
+
+app 컴포넌트가 render()함수가 실행되면 호출되는 생명주기 함수는? :
+
+__componentDidMount() 함수이다__
+
+api에서 데이터를 받아오는 axios.get()을 실행하려면 시간이 필요하다,
+
+그 사실을 자바스크립트에게 알려야만 데이터를 잡을 수 있으므로 async,await를 사용한다.
+
+>>>>>>> 73691863c4f7a1d236d63e93dd9385ed8fa9cdb5
 
 # <br>[09월 29일]</br>
 - - -
