@@ -58,10 +58,19 @@ export default App;
 <Movie> 컴포넌트가 반환할 JSX 를 <div class="movies"></div>에 감싼다.
 ```
 
+
 **영화 포스터 이미지 추가하기**<br>
 Movie.js 공간에
 `<div class="movie">
             <img src={poster} alt={title} title={title} />`
+            
+            
+**App.js와 Movie.js 컴포넌트에 css 파일 임포트하기**<br>
+`import './App.css';`
+`import './Movie.css';`
+
+
+
 
 # [10월 6일]
 **마운트로 분류하는 생명주기 함수들**
