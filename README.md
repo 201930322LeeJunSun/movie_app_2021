@@ -1,13 +1,77 @@
 # 201930322 이준선
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
 # [10월 13일]
+**movie 컴포넌트를 임포트한 다음 <Movie /> 에 반환**<br>
+`import Movie from './Movie'`
 
-#[10월 6일]
-=======
-=======
->>>>>>> 73691863c4f7a1d236d63e93dd9385ed8fa9cdb5
+
+**Movie 컴포넌트에 props 전달하기**<br>
+```{movies.map(movie=>( 
+      <Movie
+      key={movie.id}
+      id={movie.id}
+      year={movie.year}
+      title={movie.title}
+      summary={movie.summary}
+      poster={movie.medium_cover_image}
+      />
+       ))}
+ ```
+       
+※주의사항 : poster props는 키 이름이 medium_cover_image이므로 movies.medium_cover_image라고 작성해야 함
+
+console log는 사용하지 않기 때문에 지우고 <br>
+keporps에 `key={movie.id}` 를 넣어준다
+
+**App 컴포넌트에 HTML 추가하기**<br>
+```
+  render(){
+    const {isLoding, movies }= this.state;
+    return (
+    <section class ="container">
+      {isLoding ?(
+      <div class ="loder"> << 로딩하기 위해씀
+        <span class="loder__text">Loding...</span>
+        </div>
+    ) : (
+      <div class ="movies">
+       {movies.map(movie=>(
+      <Movie
+      key={movie.id}
+      id={movie.id}
+      year={movie.year}
+      title={movie.title}
+      summary={movie.summary}
+      poster={movie.medium_cover_image}
+      />
+       ))}
+       </div>
+    )}
+    </section>
+    )
+  }
+
+  }
+export default App;
+
+<Movie> 컴포넌트가 반환할 JSX 를 <div class="movies"></div>에 감싼다.
+```
+
+
+**영화 포스터 이미지 추가하기**<br>
+Movie.js 공간에
+`<div class="movie">
+            <img src={poster} alt={title} title={title} />`
+            
+            
+**App.js와 Movie.js 컴포넌트에 css 파일 임포트하기**<br>
+`import './App.css';`
+`import './Movie.css';`
+
+
+
+
 # [10월 6일]
 **마운트로 분류하는 생명주기 함수들**
 
