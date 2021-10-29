@@ -1,5 +1,31 @@
 # 201930322 이준선
 
+# [10월 27일]
+
+<h3>■Movie 컴포넌트에 genres props 넘겨주기</h3>
+장르의 데이터를 추가시키기 위하여 genres props를 사용한다.<br>
+
+Movie.propTypes에는 genres props가 **문자열 배열 arrayOf(propTypes.string)** 이 반드시 필요함
+
+
+function에 genres를 추가하고 <br>
+`function Movie({id,title,year,summary,poster, genres})` 
+
+
+Movie PropsType에도 추가해준다<br>
+`genres : PropTypes.arrayOf(PropTypes.string).isRequired,`<br>
+class 속성 이름을 전부 className으로 수정한다.
+
+<h3>■영화 장르 출력하기</h3>
+
+
+```
+<ul className="movie__genres">
+       {genres.map((genres)=>{return <li className="movie__genre">{genres}</li>;})}
+</ul>
+```
+
+
 
 # [10월 13일]
 **movie 컴포넌트를 임포트한 다음 <Movie /> 에 반환**<br>
