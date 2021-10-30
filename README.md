@@ -1,5 +1,124 @@
 # 201930322 이준선
 
+# [10월 27일]
+
+<h3>■Movie 컴포넌트에 genres props 넘겨주기</h3>
+장르의 데이터를 추가시키기 위하여 genres props를 사용한다.<br>
+
+Movie.propTypes에는 genres props가 **문자열 배열 arrayOf(propTypes.string)** 이 반드시 필요함
+
+
+function에 genres를 추가하고 <br>
+`function Movie({id,title,year,summary,poster, genres})` 
+
+
+Movie PropsType에도 추가해준다<br>
+`genres : PropTypes.arrayOf(PropTypes.string).isRequired,`<br>
+class 속성 이름을 전부 className으로 수정한다.
+
+<h3>■영화 장르 출력하기</h3>
+
+
+```
+<ul className="movie__genres">
+       {genres.map((genres)=>{return <li className="movie__genre">{genres}</li>;})}
+</ul>
+```
+
+<h3>■li 엘리먼트에 key props추가하기</h3>
+li 엘리먼트에 keyprops를 추가하지 않아서 console에 오류가 뜬다. <br>
+함수의 2번째 인자 이름인 index를 추가해주자<br>
+
+`{genres.map((genres, index)=>{return <li key={index} className="movie__genre">{genres}</li>;})}`
+
+
+<h3>■App.css 수정</h3>
+
+```*{
+    box-sizing:border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #eff3f7;
+    height: 100%;
+}
+```
+
+<h3>■Movie.css 수정</h3>
+
+```.movies .movie{
+    background-color: white;
+    margin-bottom: 70px;
+    font-weight:  300;
+    padding: 20px;
+    border-radius: 20px;
+    color: #adaeb9;
+    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),0 8px 16px -8px
+    rgba(0, 0, 0, 0.3),
+    0 --6px 16px -6px rgba(0, 0, 0, 0.025);
+}
+
+.movie .movie a{
+    display: grid;
+    grid-template-columns: minmax(150px, 1fr) 2fr;
+    grid-gap: 20px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.movie img {
+    position: relative;
+    top: -50px;
+    max-width: 150px;
+    width: 100%;
+    margin-right: 30px;
+    box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25), 0 18px 36px
+    -18px rgba(0, 0, 0, 0.025);
+}
+.movie .movie__title,
+.movie .movie__year {
+    margin: 0;
+    font-weight: 300;
+}
+.movie .movie__title{
+    margin-bottom: 5px;
+    font-size: 24px;
+    color: #2c2c2c;
+}
+.movie .movie__genres {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px 0px;
+}
+.movie__genres li,
+.movie__year{
+    margin-right: 10px;
+    font-size: 14px;
+}
+```
+
+<h3>■시놉시스 180자로 제한하기</h3>
+movie.js 파일에서 <br>
+{summary} => {summary.slice(0, 180)}... 로 바꾸기<br>
+...은 생략의 의미로 썼음 
+
+<h3>■영화앱 제목 바꾸기</h3>
+public 폴더의 index.html 파일에서 title 엘리먼트 사이에 넣으면 됨<br>
+
+`<title>Movie App</title>`
+
+<h3>■라우터를 사용하기 위해 react-router-dom 설치</h3>
+
+`npm install react-router-dom`
+
+
 
 # [10월 13일]
 **movie 컴포넌트를 임포트한 다음 <Movie /> 에 반환**<br>
