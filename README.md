@@ -119,6 +119,221 @@ public 폴더의 index.html 파일에서 title 엘리먼트 사이에 넣으면 
 `npm install react-router-dom`
 
 
+<h3>■routes 폴더 만들고 Home.js, About.js, Home.css 파일 만들기</h3>
+
+**Home.js 파일**
+
+```
+import Movie from '../components/Movie';
+import './Home.css'
+export default Home;
+```
+App.js를 복사 붙여놓고 수정해준다. 
+
+
+**Home.css 파일**
+
+```
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.loader {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300;
+}
+
+.movies {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(400px, 1fr));
+    grid-gap: 100px;
+    padding: 50px;
+    width: 80%;
+    padding-top: 70px;
+}
+@media screen and (max-width: 1090px) {
+    .movies{
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+    
+}
+```
+
+
+<h3>■./src/App.js 파일 수정</h3>
+
+```import React from "react";
+import Home from './routes/Home';
+import './App.css'
+
+function App() {
+  return <Home />;
+}
+
+export default App;
+```
+
+<h3>■HashRouter와 Route 컴포넌트 사용하기</h3>
+
+```import React from "react";
+import './App.css'
+import {HashRouter, Route} from 'react-router-dom';
+
+function App() {
+  return(
+    <HashRouter>
+      <Route />
+      </HashRouter>
+  );
+}
+
+export default App;
+```
+
+<h3>■Route 컴포넌트에path, component props 추가하기</h3>
+
+```import React from "react";
+import './App.css'
+import {HashRouter, Route} from 'react-router-dom';
+import About from './routes/About'
+
+function App() {
+  return(
+    <HashRouter>
+      <Route path="/about" component={About} />
+      </HashRouter>
+  );
+}
+
+export default App;
+```
+
+<h3>■About.js 파일 수정하기</h3>
+
+```
+import React from "react";
+function About() {
+    return <span> About this page : I built it because I love movies.</span>;
+}
+
+export default About;
+```
+
+<h3>■Home 컴포넌트를 위한 Route 컴포넌트 추가하기</h3>
+
+```
+import Home from "./routes/Home";
+<Route path="/" component={Home} />
+ ```
+ 
+<h3>■Home 치면 Home 나오고 introduction치면 introduction 나옴</h3>
+ 
+```function App() {
+  return(
+    <HashRouter>
+      <Route path ="/home">
+        <h1>Home</h1>
+      </Route>
+      <Route path="/home/introduction">
+        <h1>Introduction</h1>
+      </Route>
+      <Route path="/about">
+        <h1>About</h1>
+      </Route>
+      </HashRouter>
+  );
+}
+```
+
+
+<h3>■About.css 파일 수정하기</h3>
+
+```
+.about__container{
+    box-shadow: 0 13px 27px --5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px
+    rgba(0, 0, 0, 0.3),
+    0 -6px 16px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 400px;
+    font-weight: 300;
+}
+
+.about__container span:first-child {
+    font-size: 20px;
+}
+
+.about__container span:last-child{
+    display: block;
+    margin-top: 10px;
+}
+```
+
+<h3>■About.js 파일 수정하기</h3>
+
+```
+import React from "react";
+import './About.css';
+function About() {
+    return (
+        <div className="about__container">
+            <span>
+                "Freedom is the freedom to say that two plus two make four. If 
+                that is granted, all else
+                follows"
+            </span>
+            <span>- George Orwell, 1984</span>
+        </div>
+    );
+}
+
+export default About;
+```
+
+<h3>■Navigation 컴포넌트 만들기</h3>
+
+```
+import React from "react";
+
+function Navigation(){
+    return(
+        <div>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+        </div>
+    );
+}
+
+export default Navigation;
+```
+
+<h3>■a 엘리먼트 Link 컴포넌트로 바꾸기</h3>
+
+```
+import React from "react";
+import { Link } from 'react-router-dom';
+
+function Navigation(){
+    return(
+        <div>
+            <Link to href="/">Home</Link>
+            <Link to="/about">About</Link>
+        </div>
+    );
+}
+
+export default Navigation;
+```
 
 # [10월 13일]
 **movie 컴포넌트를 임포트한 다음 <Movie /> 에 반환**<br>
