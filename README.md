@@ -1,5 +1,114 @@
 # 201930322 이준선
 
+# [11월 03일]
+
+
+<h3>■route props 넘어오는지 확인하기</h3>
+
+```
+import React from "react";
+import './About.css';
+function About(props) {
+    console.log(props);
+    return (
+        <div className="about__container">
+            <span>
+                "Freedom is the freedom to say that two plus two make four. If 
+                that is granted, all else
+                follows"
+            </span>
+            <span>- George Orwell, 1984</span>
+        </div>
+    );
+}
+
+export default About;
+```
+
+
+<h3>■Navigation 컴포넌트 정리 </h3>
+
+Navigation.js
+
+```
+import React from "react";
+import { Link } from 'react-router-dom';
+import './Navigation.css'
+
+function Navigation(){
+    return(
+        <div className="nav">
+            <Link to href="/">Home</Link>
+            <Link to="/about">About</Link>
+            
+        </div>
+    );
+}
+export default Navigation;
+```
+
+
+<h3>■Movie 컴포넌트에 Link 컴포넌트 추가하기 </h3>
+
+src/component/Movie.js
+
+```
+import React from "react";
+import PropTypes from 'prop-types';
+import './Movie.css'
+import {Link} from 'react-router-dom';
+
+function Movie({id,title,year,summary,poster, genres}){
+    return(
+        <div className="movie">
+            <Link to={{pathname: '/movie-detail',
+            state:{year, title, summary, poster, genres },
+        }}
+        >
+            <img src={poster} alt={title} title={title} />
+            <div className="movie__data">
+                <h3 className ="movie__title">{title}</h3>
+                <h5 className="movie__year">{year}</h5>
+                <ul className="movie__genres">
+                    {genres.map((genres, index)=>{
+                        return <li key={index} className="movie__genre">{genres}</li>;
+                    })}
+                    </ul>
+                <p className="movie__summary">{summary.slice(0, 180)}...</p>
+            </div>
+            </Link>
+        </div>
+    );
+}
+
+Movie.propTypes = {
+    id : PropTypes.number.isRequired,
+    year : PropTypes.string.isRequired,
+    title : PropTypes.string.isRequired,
+    summary : PropTypes.string.isRequired,
+    poster : PropTypes.string.isRequired,
+    genres : PropTypes.arrayOf(PropTypes.string).isRequired,
+
+};
+export default Movie;
+```
+
+영화 카드를 누르면 Movie-detail로 이동한다
+
+<h3>■Detail 컴포넌트 만들기</h3>
+
+```
+import React from "react";
+
+function Detail(props){
+    console.log(props);
+    return <span>hello</span>;
+}
+
+export default Detail;
+```
+
+
 # [10월 27일]
 
 <h3>■Movie 컴포넌트에 genres props 넘겨주기</h3>
