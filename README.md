@@ -108,6 +108,73 @@ function Detail(props){
 export default Detail;
 ```
 
+<h3>■Detail 컴포넌트 클래스형 컴포넌트로 변경</h3>
+
+```
+import React, { Component } from "react";
+import { render } from "react-dom";
+
+class Detail extends React.Component {
+ComponentDidMount(){
+        const {location, history} = this.props;
+    }
+
+
+render(){
+    return <span>hello</span>
+}
+}
+export default Detail;
+```
+
+<h3>■push 함수 사용하기</h3>
+
+```
+import React, { Component } from "react";
+import { render } from "react-dom";
+
+class Detail extends React.Component {
+ComponentDidMount(){
+        const {location, history} = this.props;
+        if (location.state === undefined){
+            history.push('/');
+        }
+    }
+
+
+render(){
+    return <span>hello</span>
+}
+}
+export default Detail;
+```
+
+<h3>■영화 제목 출력</h3>
+
+```
+render(){
+   const {location} = this.props;
+   return <span>{location.state.title}</span>
+}
+}
+```
+
+<h3>■location.state 확인하기</h3>
+
+```
+render(){
+   const {location} = this.props;
+   if (location.state){
+   return <span>{location.state.title}</span>
+   }
+
+   else{
+       return null;
+   }
+}
+}
+```
+
 <h3>■package.json과 package-lock.json 차이</h3>
 
 -package.json은 패키지 의존성 관리 파일이다.
