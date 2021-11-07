@@ -108,6 +108,23 @@ function Detail(props){
 export default Detail;
 ```
 
+<h3>■package.json과 package-lock.json 차이</h3>
+
+-package.json은 패키지 의존성 관리 파일이다.
+
+ 
+-협업을 할 때는 팀원들 각자의 컴퓨터에 같은 패키지를 설치해서 동일한 개발환경을 구성해야하는 게 package.json이다
+
+-package.json은 패키지 의존성 관리 파일이다.
+
+-간혹 버전이 달라서 앱이 동작하지 않는 경우에 이렇게 하면 된다.<br>
+<h4> • 팀원끼리 npm버전이 일치하는지 확인. $ npm –version
+    
+• node_modules 폴더를 전부 삭제.<br>
+• npm cache 삭제. <br>
+• node_modules 재설치. $ npm install </h4>
+
+
 
 # [10월 27일]
 
