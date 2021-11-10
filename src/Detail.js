@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 
-class Detail extends React.Component {
+class Detail extends React.Component {h
 ComponentDidMount(){
         const {location, history} = this.props;
         if (location.state === undefined){
