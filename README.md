@@ -1,5 +1,11 @@
 # 201930322 이준선
 
+
+# [11월 10일]
+※오류 ./src/app.js module not found: can't resolve ' <br>
+Detail 파일이 route 폴더 안에 없어서 오류 떴었음.
+
+
 # [11월 03일]
 
 
