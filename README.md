@@ -5,6 +5,50 @@
 ※오류 ./src/app.js module not found: can't resolve ' <br>
 Detail 파일이 route 폴더 안에 없어서 오류 떴었음.
 
+<h3>■깃허브에 배포하기 package.json 수정하기</h3>
+
+`"homepage": "https://201930322LeeJunSun.github.io/movie_app_2021"`
+
+`
+"scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  }
+`
+
+<h3>■gh-pages 설치하기</h3>
+
+`
+npm install gh-pages
+`
+
+<h3>■깃허브 저장소 다시 확인하기</h3>
+
+`git remote -v`
+
+<h3>■영화 앱 깃허브에 배포</h3>
+
+`npm run deploy`
+
+<h3>■나의 영화 앱 완성!!!</h3>
+
+`https://201930322LeeJunSun.github.io/movie_app_2021`
+
+<h3>■url에 # 안뜨게 하기</h3>
+
+app.js 파일에
+
+`
+import {BrowserRouter, Route} from 'react-router-dom';
+ <BrowserRouter> </BrowserRouter>
+ `
+ 
+ HashRouter를 BrowserRouter로 수정해주면 된다
+ 
+
+
 
 # [11월 03일]
 
